@@ -1,0 +1,2 @@
+C:\0-Cursos\C#\Tp1_OOP_Bar\Tp4_OOP_Bar\obj\Debug\Tp1_OOP_Bar.csprojAssemblyReference.cache
+C:\0-Cursos\C#\Tp1_OOP_Bar\Tp4_OOP_Bar\obj\Debug\Tp1_OOP_Bar.csproj.CoreCompileInputs.cache
