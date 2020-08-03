@@ -11,8 +11,7 @@ namespace Tp1_OOP_Bar
         public static void Main() 
         {
             Bar bar= new Bar();
-            bar.MostrarBarra();
-            bar.AsignarCliente(bar.)
+            bar.InicializarBar();
             Console.ReadKey(); 
         }
     }

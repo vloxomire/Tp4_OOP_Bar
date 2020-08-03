@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,16 +11,49 @@ namespace Tp1_OOP_Bar
     {
         private Humanoide[] barra;
         private Humanoide humanoide;
+        private int indice;
         public Bar() 
         {
-            barra = new Humanoide[10];
+            indice = 10;
+            barra = new Humanoide[indice];
             humanoide = new Humanoide();
+        }
+        public void InicializarBar() 
+        {
+            int menu = 0;
+            do
+            {
+                Console.WriteLine("1)Desea asignarle un humanoide?");
+                //podria surgir dde aca un nuevo humanoide con el random de nombre
+                Console.WriteLine("2)Mostrar barra");
+                Console.WriteLine("3)Salir");
+                menu = int.Parse(Console.ReadLine());
+                switch (menu)
+                {
+                    case 1:
+                        AsignarCliente(HayAsientoVacio(),humanoide);
+                        break;
+                    case 2:
+                        MostrarBarra();
+                        Console.WriteLine();
+                        break;
+                    default:
+                        break;
+                }
+            } while (menu!=3);
         }
         public void MostrarBarra()
         {
-            foreach (Humanoide humanoide in barra) 
+            for (int i = 0; i < barra.Length; i++)
             {
-                Console.Write(humanoide.Nombre.ElementAt(0)+"-");
+                if (barra[i] != humanoide)
+                {
+                    Console.Write("x-");
+                }
+                else 
+                {
+                    Console.Write(humanoide.Nombre.ElementAt(0) + "-");
+                }
             }
         }
         public void AsignarCliente(bool lugar,Humanoide humanoide) 
@@ -29,7 +63,9 @@ namespace Tp1_OOP_Bar
             {
                 return;
             }
-            barra[AsientoLibre()]=humanoide;
+            int posicion = AsientoLibre();
+            barra[posicion]=humanoide;
+            barra[posicion].Nombre(humanoide.AsignarNombre(posicion)
            
         }
         public bool HayAsientoVacio() 
